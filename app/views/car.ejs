@@ -1,0 +1,45 @@
+<% include partials/header %>
+
+<div class="sub-page">
+    <div class="nav-l"><%= name.toUpperCase() %></div>
+    <div class="nav-r">home/<%= name %></div>
+</div>
+
+<div class="car-list grid">
+    <% cars.forEach(function(car){ %>
+        <div class="car-info col-6">
+            <img class="car-img" src="<%= car.image %>">
+            <div class="car-det">
+                <h2><%= car.name.toUpperCase() %></h2>
+                <p><%= car.detail %></p>
+                <form action="/cart/add/<%= name %>/<%= car.name %>/<%= car.id %>" method="POST" class="btns">
+                    <select name="tyre" required>
+                        <option value="" selected disabled>Select Tyre Brand</option>
+                        <option value="mrf">MRF $ <%= tyres.mrf %></option>
+                        <option value="bridgestone">Bridgestone $ <%= tyres.bridgestone %></option>
+                        <option value="apollo">Apollo $ <%= tyres.apollo %></option>
+                    </select>
+                    <button type="submit" class="add-btn">ADD TO CART</button>
+                </form>
+            </div>
+        </div>
+    <% }) %>
+</div>
+
+<p class="head-one">View More Brands</p>
+<div class="cars">
+    <div class="car">
+        <a href="/car/honda"><img src="/images/honda.jpg"></a>
+    </div>
+    <div class="car">
+        <a href="/car/hyundai"><img src="/images/hyundai.jpg"></a>
+    </div>
+    <div class="car">
+        <a href="/car/suzuki"><img src="/images/suzuki.png"></a>
+    </div>
+    <div class="car">
+        <a href="/car/toyota"><img src="/images/toyota.jpg"></a>
+    </div>
+</div>
+
+<% include partials/footer %>

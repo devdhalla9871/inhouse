@@ -1,0 +1,78 @@
+<% include partials/header %>
+
+<div class="sub-page">
+    <div class="nav-l">CART</div>
+    <div class="nav-r">home/cart</div>
+</div>
+
+<p class="caption">Here is your cart!</p>
+<div class="cart">
+    <table>
+        <tr>
+            <th> </th>
+            <th>Product Name</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Sub Total</th>
+        </tr>
+        <% items.forEach(function(item){ %>
+            <tr>
+                <td>
+                    <form action="/cart/delete/<%= item.id %>" method="POST">
+                        <button type="submit" class="qbtn"><i class="fas fa-times"></i></button>
+                    </form>
+                </td>
+                <td><%= item.name.toUpperCase() %></td>
+                <td>$ <%= item.price %></td>
+                <td>
+                    <button class="qbtn" onclick="document.getElementById('<%= item.name %>').stepUp(-1); document.getElementById('sub<%= item.name %>').stepUp(-<%= item.price %>); recalc();"><i class="fas fa-minus"></i></button>
+                    <input class="qnum" type="number" value="1" id="<%= item.name %>">
+                    <button class="qbtn" onclick="document.getElementById('<%= item.name %>').stepUp(1); document.getElementById('sub<%= item.name %>').stepUp(<%= item.price %>); recalc();"><i class="fas fa-plus"></i></button>
+                </td>
+                <td>$ <input class="qnum sub" type="number" value="<%= item.price %>" id="sub<%= item.name %>" readonly></td>
+            </tr>
+        <% }) %>
+        <tr>
+            <td colspan="4">TOTAL AMOUNT</td>
+            <td id="total"></td>
+        </tr>
+        <tr>
+            <td colspan="5" class="checkout-btn">CHECKOUT <i class="fas fa-check"></i></td>
+        </tr>
+    </table>
+</div>
+
+<p class="head-one">Continue Shopping</p>
+<div class="cars">
+    <div class="car">
+        <a href="/car/honda"><img src="/images/honda.jpg"></a>
+    </div>
+    <div class="car">
+        <a href="/car/hyundai"><img src="/images/hyundai.jpg"></a>
+    </div>
+    <div class="car">
+        <a href="/car/suzuki"><img src="/images/suzuki.png"></a>
+    </div>
+    <div class="car">
+        <a href="/car/toyota"><img src="/images/toyota.jpg"></a>
+    </div>
+</div>
+
+<script>
+    var subs = document.getElementsByClassName("sub");
+    var total = 0;
+    [...subs].forEach(function(sub){
+        total += +sub.value;
+    })
+    document.getElementById("total").innerHTML = "$ "+total;
+    function recalc(){
+        var subs = document.getElementsByClassName("sub");
+        var total = 0;
+        [...subs].forEach(function(sub){
+            total += +sub.value;
+        })
+        document.getElementById("total").innerHTML = "$ "+total;
+    }
+</script>
+
+<% include partials/footer %>

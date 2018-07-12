@@ -1,0 +1,73 @@
+<p class="head" id="contact">CONTACT US</p>
+<p class="detail">Lets get in touch. Send us a message.</p>
+<div class="footer">
+    <div class="contact">
+        <div class="form">
+            <form>
+                <input type="text" name="name" placeholder="NAME">
+                <input type="email" name="email" placeholder="EMAIL">
+                <input type="text" name="message" placeholder="MESSAGE">
+                <input type="submit" value="SEND">
+            </form>
+        </div>
+        <div class="location">
+            <div id="map"></div>
+        </div>
+    </div>
+</div>
+<div class="foot-end">DEV_TYRES© 2018</div>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick.min.js'></script>
+<script>
+    $(document).ready(function(){
+        $('.cars, .tyres').slick({
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            autoplay: true,
+            autoplaySpeed: 3000,
+            responsive: [
+                {
+                  breakpoint: 600,
+                  settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1
+                  }
+                },
+                {
+                  breakpoint: 480,
+                  settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                  }
+                }
+            ]
+        });
+    });
+    function initMap() {
+        var un = {lat: 28.6213, lng: 77.0613};
+        var map = new google.maps.Map(
+            document.getElementById('map'), {zoom: 15, center: un}
+        );
+        var marker = new google.maps.Marker({position: un, map: map});
+    }
+    if (window.location.hash && window.location.hash == '#_=_') {
+        if (window.history && history.pushState) {
+            window.history.pushState("", document.title, window.location.pathname);
+        } else {
+            // Prevent scrolling by storing the page's current scroll offset
+            var scroll = {
+                top: document.body.scrollTop,
+                left: document.body.scrollLeft
+            };
+            window.location.hash = '';
+            // Restore the scroll offset, should be flicker free
+            document.body.scrollTop = scroll.top;
+            document.body.scrollLeft = scroll.left;
+        }
+    }
+</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCl2LvZvauF-kC1kVT6TTQy2dKTjPXn5YE&callback=initMap"></script>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tyres</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick.min.css'>
+    <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick-theme.min.css'>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+<body>
+
+<div class="navbar">
+    <a href="/" class="logo nav-l"><img src="/images/logo.svg"> TYRES</a>
+    <% if(currentUser){ %>
+        <a href="/signout" class="nav-r"><img id="userpic" src="<%= currentUser.picture.data.url %>"> SIGNOUT</a>
+    <% } else { %>
+        <a href="/signin/facebook" class="nav-r"><i class="fas fa-user"></i> SIGNIN</a>
+    <% } %>
+    <a href="#contact" class="nav-r"><i class="fas fa-envelope"></i> CONTACT</a>
+    <a href="/cart" class="nav-r"><i class="fas fa-shopping-cart"></i> CART
+        [<%= cartnum %>]</a>
+</div>
+
+<% if(error.length > 0){ %>
+    <div class="flash error"><div><%= error %></div></div>
+<% } %>
+<% if(success.length > 0){ %>
+    <div class="flash success"><div><%= success %></div></div>
+<% } %>
