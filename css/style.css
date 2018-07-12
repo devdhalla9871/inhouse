@@ -7,7 +7,8 @@
 	text-decoration: none;
 	outline: none;
 	border: none;
-	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
 	font-family: 'Raleway', sans-serif;
 }
 a{
@@ -26,7 +27,8 @@ a{
 	line-height: 1.8;
 	color: #000;
 	background-color: #fff;
-	box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+	-webkit-box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+	        box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
 }
 .nav-l{
 	float: left;
@@ -146,7 +148,8 @@ a{
 	margin: auto;
 }
 .car:hover, .tyre:hover{
-	box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+	-webkit-box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+	        box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
 }
 @media only screen and (max-width: 600px){
 	.car, .tyre{
@@ -165,6 +168,8 @@ a{
 	padding-bottom: 30px;
 }
 .footer .contact{
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
 }
 .footer .form{
@@ -207,7 +212,10 @@ a{
 }
 @media only screen and (max-width: 600px){
 	.footer .contact{
-		flex-direction: column;
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		    -ms-flex-direction: column;
+		        flex-direction: column;
 	}
 	.footer .form, .footer .location{
 		width: 100%;
