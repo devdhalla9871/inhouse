@@ -34,55 +34,56 @@
 </div>
 
 <p class="head">CAR BRANDS</p>
-<p class="detail">We have many car brands to server you.</p>
+<p class="detail">We have many car brands to serve you.</p>
 <div class="cars">
     <div class="car">
-        <h4>1</h4>
+        <img src="images/honda.jpg">
     </div>
     <div class="car">
-        <h4>2</h4>
+        <img src="images/hyundai.jpg">
     </div>
     <div class="car">
-        <h4>3</h4>
+        <img src="images/suzuki.png">
     </div>
     <div class="car">
-        <h4>4</h4>
-    </div>
-    <div class="car">
-        <h4>5</h4>
-    </div>
-    <div class="car">
-        <h4>6</h4>
-    </div>
-    <div class="car">
-        <h4>7</h4>
+        <img src="images/toyota.jpg">
     </div>
 </div>
 <p class="head">TYRE BRANDS</p>
-<p class="detail">We have many car brands to server you.</p>
+<p class="detail">We have many tyre brands to serve you.</p>
 <div class="tyres">
     <div class="tyre">
-        <h4>1</h4>
+        <img src="images/bridgestone.jpg">
     </div>
     <div class="tyre">
-        <h4>2</h4>
+        <img src="images/mrf.jpg">
     </div>
     <div class="tyre">
-        <h4>3</h4>
+        <img src="images/apollo.jpg">
     </div>
     <div class="tyre">
-        <h4>4</h4>
-    </div>
-    <div class="tyre">
-        <h4>5</h4>
-    </div>
-    <div class="tyre">
-        <h4>6</h4>
-    </div>
-    <div class="tyre">
-        <h4>7</h4>
+        <img src="images/usm.jpg">
     </div>
 </div>
+
+<p class="head">CONTACT US</p>
+<p class="detail">Lets get in touch. Send us a message.</p>
+<div class="footer">
+    <div class="contact">
+        <div class="form">
+            <form>
+                <input type="text" name="name" placeholder="NAME">
+                <input type="email" name="email" placeholder="EMAIL">
+                <input type="text" name="message" placeholder="MESSAGE">
+                <input type="submit" value="SEND">
+            </form>
+        </div>
+        <div class="location">
+            <div id="map"></div>
+        </div>
+    </div>
+</div>
+<div class="foot-end">DEV_TYRES© 2018</div>
 
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick.min.js'></script>
@@ -111,7 +112,18 @@
             ]
         });
     });
+    function initMap() {
+        // The location of Uluru
+        var uluru = {lat: -25.344, lng: 131.036};
+        // The map, centered at Uluru
+        var map = new google.maps.Map(
+            document.getElementById('map'), {zoom: 4, center: uluru}
+        );
+        // The marker, positioned at Uluru
+        var marker = new google.maps.Marker({position: uluru, map: map});
+    }
 </script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCl2LvZvauF-kC1kVT6TTQy2dKTjPXn5YE&callback=initMap"></script>
 
 </body>
 </html>

@@ -17,6 +17,7 @@ a{
 .navbar{
 	width: 100%;
 	height: 59px;
+	overflow: hidden;
 	padding: 0 5%;
 	position: fixed;
 	top: 0;
@@ -89,7 +90,7 @@ a{
 .banner .banner-btn:hover, .banner .banner-social a:hover{
 	opacity: 0.90;
 }
-@media only screen and (max-width: 586px){
+@media only screen and (max-width: 605px){
 	.banner{
 		padding-top: 30vh;
 	}
@@ -124,19 +125,28 @@ a{
 }
 .slick-next:before, .slick-prev:before {
     font-size: 20px;
+    color: #000;
 }
 .cars, .tyres{
 	width: 100%;
 	padding: 20px 5%;
 	margin: auto;
-	background-color: dodgerblue;
+	background-color: #f1f1f1;
 }
 .car, .tyre{
 	height: 250px;
 	margin: 0 20px;
 	padding: 10px;
 	border-radius: 5px;
-	background-color: red;
+	background-color: white;
+}
+.car img, .tyre img{
+	width: 100%;
+	height: 100%;
+	margin: auto;
+}
+.car:hover, .tyre:hover{
+	box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
 }
 @media only screen and (max-width: 600px){
 	.car, .tyre{
@@ -145,6 +155,67 @@ a{
 }
 @media only screen and (max-width: 480px){
 	.car, .tyre{
+		height: 200px;
+	}
+}
+/*footer*/
+.footer{
+	background-color: #f1f1f1;
+	padding: 20px 7%;
+	padding-bottom: 30px;
+}
+.footer .contact{
+	display: flex;
+}
+.footer .form{
+	width: 50%;
+	padding: 0px 20px;
+}
+.footer .form input{
+	width: 100%;
+	height: 40px;
+	margin: 5px 0;
+	padding: 10px 15px;
+	border: 1px solid #000;
+	border-radius: 2px;
+}
+.footer .form input[type="submit"]{
+	font-size: 16px;
+	border: none;
+	background-color: #000;
+	color: #fff;
+}
+.footer .location{
+	width: 50%;
+	margin: 5px 0;
+	padding: 0px 20px;
+}
+#map{
+	width: 100%;
+	height: 100%;
+	border-radius: 2px;
+}
+.foot-end{
+	width: 100%;
+	height: 59px;
+	padding: 10px 7%;
+	font-size: 18px;
+	line-height: 2;
+	text-align: center;
+	background-color: #000;
+	color: #fff;
+}
+@media only screen and (max-width: 600px){
+	.footer .contact{
+		flex-direction: column;
+	}
+	.footer .form, .footer .location{
+		width: 100%;
+	}
+	.footer .location{
+		margin-top: 30px;
+	}
+	#map{
 		height: 200px;
 	}
 }
